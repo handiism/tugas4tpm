@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tpm1/stopwatch.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +21,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
+    var usernameController = TextEditingController();
     var passwordController = TextEditingController();
 
     return Scaffold(
@@ -34,30 +35,35 @@ class Login extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: const FlutterLogo(size: 40),
+                padding: const EdgeInsets.only(bottom: 20),
+                child: const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Please login to continue',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
               ),
               Column(
                 children: [
                   TextFormField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
-                      labelText: 'Email',
+                    controller: usernameController,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.all(20),
+                      border: OutlineInputBorder(),
+                      labelText: 'Username',
                     ),
                   ),
                   const SizedBox(height: 10),
                   TextFormField(
                     controller: passwordController,
                     obscureText: true,
-                    decoration: InputDecoration(
-                      contentPadding: const EdgeInsets.all(20),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                      ),
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.all(20),
+                      border: OutlineInputBorder(),
                       labelText: 'Password',
                     ),
                   ),
@@ -66,9 +72,15 @@ class Login extends StatelessWidget {
                     onPressed: () {
                       Text text = const Text("Login Failed");
 
-                      if (emailController.text.toString() == "admin@mail.com" &&
+                      if (usernameController.text.toString() == "admin" &&
                           passwordController.text.toString() == "admin") {
                         text = const Text("Login Success");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const StopWatch(),
+                          ),
+                        );
                       }
 
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -81,18 +93,6 @@ class Login extends StatelessWidget {
                       minimumSize: const Size.fromHeight(40),
                     ),
                     child: const Text('Login'),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    style: TextButton.styleFrom(
-                        padding: EdgeInsets.zero,
-                        minimumSize: const Size(50, 30),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        alignment: Alignment.centerLeft),
-                    child: const Text(
-                      'Forgot Password?',
-                      style: TextStyle(color: Colors.grey),
-                    ),
                   ),
                 ],
               ),
