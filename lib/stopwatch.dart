@@ -14,7 +14,7 @@ class StopWatch extends StatefulWidget {
   }
 
   @override
-  _State createState() => _State();
+  State<StopWatch> createState() => _State();
 }
 
 class _State extends State<StopWatch> {
@@ -44,9 +44,6 @@ class _State extends State<StopWatch> {
     _stopWatchTimer.fetchStopped
         .listen((value) => print('stopped from stream'));
     _stopWatchTimer.fetchEnded.listen((value) => print('ended from stream'));
-
-    /// Can be set preset time. This case is "00:01.23".
-    // _stopWatchTimer.setPresetTime(mSec: 1234);
   }
 
   @override
@@ -87,26 +84,17 @@ class _State extends State<StopWatch> {
                           child: Text(
                             displayTime,
                             style: const TextStyle(
-                                fontSize: 40,
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Text(
-                            value.toString(),
-                            style: const TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'Helvetica',
-                                fontWeight: FontWeight.w400),
+                              fontSize: 40,
+                              fontFamily: 'Helvetica',
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ],
                     );
                   },
                 ),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Padding(
