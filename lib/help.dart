@@ -6,21 +6,41 @@ class Help extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          color: Colors.white,
-          child: Center(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Text('1.Login terlebih dahulu'),
-                Text(
-                    '2.pilihan menu Daftar Anggota, Aplikasi Stopwatch, Daftar situs pilih sesuai kebutuhan'),
-                Text('3.Jika ingin logout bisa masuk ke bantuan dan logout '),
+              children: <Widget>[
+                const Text(
+                  "Bantuan",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                centerText('1. Login terlebih dahulu'),
+                centerText(
+                    '2. Pilihan salah satu menu: Data Kelompok, Stopwatch, Situs Rekomendasi, maupun Laman Favorit. Pilih sesuai kebutuhan'),
+                centerText(
+                    '3. Jika ingin logout, pergi ke halaman utama lalu klik tombol keluar '),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  centerText(String text) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Text(
+        text,
+        style: const TextStyle(fontSize: 20),
+        textAlign: TextAlign.center,
       ),
     );
   }

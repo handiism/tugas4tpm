@@ -12,19 +12,19 @@ class _KelompokState extends State<Kelompok> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("DATA KELOMPOK"),
+        title: const Text("Data Kelompok"),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(
-                height: 20.0,
-              ),
+              // const SizedBox(
+              //   height: 20.0,
+              // ),
               Card(
                 child: SizedBox(
                   width: 300,
-                  height: 100,
+                  height: 60,
                   child: Center(
                     child: Column(
                       children: const [
@@ -44,7 +44,7 @@ class _KelompokState extends State<Kelompok> {
               Card(
                 child: SizedBox(
                   width: 300,
-                  height: 100,
+                  height: 60,
                   child: Center(
                     child: Column(
                       children: const [
@@ -64,7 +64,7 @@ class _KelompokState extends State<Kelompok> {
               Card(
                 child: SizedBox(
                   width: 300,
-                  height: 100,
+                  height: 60,
                   child: Center(
                     child: Column(
                       children: const [
