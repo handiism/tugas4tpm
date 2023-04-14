@@ -45,8 +45,12 @@ class _FavoriteState extends State<Favorite> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Situs Favorite",
+        backgroundColor: Colors.grey[200],
+        title: const Center(
+          child: Text(
+            "Situs Favorite",
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          ),
         ),
       ),
       body: FutureBuilder(
