@@ -40,6 +40,7 @@ class _FavoriteState extends State<Favorite> {
       dataresult = data
           .where((element) => sp.getStringList('data')!.contains(element.id))
           .toList();
+
       return dataresult;
     }
 
